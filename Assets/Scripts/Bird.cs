@@ -7,14 +7,14 @@ using UnityEngine;
 public class Bird : MonoBehaviour
 {
     Rigidbody2D fisica;
+    [SerializeField]
+    private int forcaImpulso = 4;
     
-    // Start is called before the first frame update
-    void Awake()
+    private void Awake()
     {
         this.fisica = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(Input.GetMouseButtonDown(0))
@@ -25,6 +25,6 @@ public class Bird : MonoBehaviour
 
     void Impulsionar()
     {
-        this.fisica.AddForce(Vector2.up * 7,ForceMode2D.Impulse);
+        this.fisica.AddForce(Vector2.up * this.forcaImpulso,ForceMode2D.Impulse);
     }
 }
